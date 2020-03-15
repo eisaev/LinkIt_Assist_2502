@@ -26,7 +26,7 @@ import argparse
 import traceback
 import os
 import struct
-from serial import serial_for_url
+#from serial import serial_for_url
 
 
 class MTKModem(object):
@@ -195,9 +195,9 @@ class MTKModem(object):
             debug_msg = debug_msg.replace(b'\x0d',b'')
             print (debug_msg.decode("utf-8", "ignore"))
               
-        else:
-            print ('New ID: ')        
-            print("".join(" %02x" % i for i in msg))
+#        else:
+#            print ('New ID: ')        
+#            print("".join(" %02x" % i for i in msg))
             
         # read checksum
         checksum = self.readHandleA5()
@@ -255,7 +255,7 @@ def main():
             h.open(args.port);
             time.sleep(1)
             print("Port open")
-            h.switchOn()
+            #h.switchOn()
             h.syncStream()
             h.receivePaket()
         except serial.SerialException as e:
